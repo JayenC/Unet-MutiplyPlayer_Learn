@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unet MutiplePlayer", "Unet MutiplePlayer.csproj", "{AA5C97B5-2952-27E3-84D0-5A92D35B7DD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA5C97B5-2952-27E3-84D0-5A92D35B7DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5C97B5-2952-27E3-84D0-5A92D35B7DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5C97B5-2952-27E3-84D0-5A92D35B7DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5C97B5-2952-27E3-84D0-5A92D35B7DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
