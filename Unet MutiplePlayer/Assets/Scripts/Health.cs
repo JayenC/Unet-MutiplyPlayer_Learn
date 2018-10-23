@@ -10,10 +10,14 @@ public class Health : NetworkBehaviour
     [SyncVar(hook = "OnHealthValueChanged")]
     public int currentHealth = maxHealth;
     public Slider healthSlider;
+    public bool destoryOnDeath  = false ;
+
+    private NetworkStartPosition[] spwanPoints;
 
     private void Start()
     {
         healthSlider.value = 1;
+        spwanPoints = FindObjectsOfType<NetworkStartPosition>();
     }
 
     public void TakeDamage()
@@ -25,7 +29,12 @@ public class Health : NetworkBehaviour
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            if(destoryOnDeath)
+            {
+                Destroy(this.gameObject);return;
+            }
+
+            currentHealth = maxHealth;
             Debug.Log("Death");
 
             RpcReSpwan();
@@ -36,14 +45,20 @@ public class Health : NetworkBehaviour
     public void OnHealthValueChanged(int health)
     {
         healthSlider.value = health / (float)maxHealth;
-        currentHealth = health;
-        print("value Change");
     }
 
     [ClientRpc]
     public void RpcReSpwan()
     {
         if (!isLocalPlayer) return;
-        transform.position = Vector3.zero;
+
+        Vector3 pos = Vector3.zero;
+        if(spwanPoints != null && spwanPoints.Length >0)
+        {
+            pos = spwanPoints[Random.Range(0, spwanPoints.Length)].transform.position;
+            print(spwanPoints.Length);
+        }
+
+        transform.position = pos;
     }
 }
